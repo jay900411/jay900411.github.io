@@ -1,26 +1,81 @@
 #button-container {
-	position: fixed;
-	top: 50%;
-	right: 0;
-	transform: translateY(-50%);
-  }
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
   
-#top-button,
+#top-button{
+	display: block;
+    padding: 10px 32px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    background-color: #eb75c3;
+	border: 2px solid #FCAEAE;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+    cursor: pointer;
+}
 #bottom-button {
 	display: block;
-	/* 其他按鈕樣式設定 */
+    padding: 10px 20px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    background-color: #eb75c3;
+	border: 2px solid #FCAEAE;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
 }
-#targetElement {
+
+#top-button:hover,
+#bottom-button:hover {
+	font-family: Arial, sans-serif;
+    background-color: #4285F4;
+}
+
+#top-button:focus,
+#bottom-button:focus {
+    outline: none;
+}
+
+.navbar {
+	border-radius: 10px;
+}
+
+.text-with-shadow {
+	color: #fff;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+img {
+	border-radius: 10px;
+}
+#intro {
 	position: relative;
-	background-color: #ccc;
-	width: 200px;
-	height: 200px;
-	z-index: 1;
 }
+  
+#intro::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: url(pictures/arrow.jpg) no-repeat center;
+	background-size: cover;
+	filter: blur(15px);
+	z-index: -1;
+  }
 
 h1,h2,h3,h4,h5,h6,a{
 	font-family: 'Noto Sans TC', sans-serif;
 }
+
 p{
 	font-family: 'Open Sans', sans-serif;
 }
@@ -35,7 +90,7 @@ nav li{
 }
 #intro .jumbotron{
 	background: url('../pictures/arrow.jpg');
-	background-size: 100% 100%;
+	background-size: 97% 96%;
     background-repeat: no-repeat;
     background-position: 50%;
     height: 80vh;
