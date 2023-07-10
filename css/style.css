@@ -3,30 +3,31 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%);
+	z-index: 9999
 }
   
 #top-button{
-	display: block;
-    padding: 10px 32px;
-    margin-bottom: 25px;
-    border-radius: 20px;
-    background-color: #eb75c3;
-	border: 2px solid #FCAEAE;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 900;
-    text-align: center;
-    cursor: pointer;
-}
-#bottom-button {
 	display: block;
     padding: 10px 20px;
     margin-bottom: 25px;
     border-radius: 20px;
     background-color: #eb75c3;
-	border: 2px solid #FCAEAE;
+	border: 2px solid #7d1e1e;
     color: #fff;
-    font-size: 18px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+#bottom-button {
+	display: block;
+    padding: 10px 10.5px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    background-color: #eb75c3;
+	border: 2px solid #7d1e1e;
+    color: #fff;
+    font-size: 10px;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
