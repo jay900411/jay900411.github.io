@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Display</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="css/assets/css/noscript.css" /></noscript>
+		<link rel="icon" href="images/ai1.jpg" type="image/x-icon">
+	</head>
+	<body class="is-preload">
+		<div class="back-top hide" title="回頂部"></div>
+
+		<!-- Header -->
+			<header id="header">
+				<h1>Camera Detector</h1>
+				<nav>
+					<ul>
+						<li><a href="index.html"><b>HOME</b></a></li>
+						<li><a href="about_us.html"><b>About us</b></a></li>
+						<li><a href="contact.html"><b>Contact</b></a></li>
+						<li class="nav-item mt-3">
+							<div class="gtranslate_wrapper">
+							<script>window.gtranslateSettings = {"default_language":"zh-TW","native_language_names":true,"languages":["zh-TW","en","ja"],"wrapper_selector":".gtranslate_wrapper"}</script>
+							<script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
+							</div>
+						</li>
+						<!-- <li><a href="#intro">Intro</a></li>
+						<li><a href="#one">What I Do</a></li>
+						<li><a href="#two">Who I Am</a></li>
+						<li><a href="#work">My Work</a></li>
+						<li><a href="#contact">Contact</a></li> -->
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Intro -->
+			<section id="intro" class="main style1 dark fullscreen">
+				<div class="content">
+					<header>
+						<h2>成果展示</h2>
+					</header>
+					<p>更銳利的焦點，更強大的安全</p>
+					<footer>
+						<a href="#one" class="button style2 down">More</a>
+					</footer>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="main style2 right dark fullscreen">
+				<article class="from-left">
+					<a href="images/1.jpg" class="image fit"><img src="images/1.jpg" title="image" alt="" /></a>
+				</article>
+				<div class="content box style2">
+					<header>
+						<h2>智慧家庭：開啟監測</h2>
+					</header>
+					<p>透過智慧家庭監測系統，可以實時掌握家中的狀況，無論是否在家，開啟監測功能，為家庭帶來更多的安全感和便利性。</p>
+				</div>
+				<a href="#two" class="button style2 down anchored">Next</a>
+			</section>
+
+		<!-- two -->
+		<section id="two" class="main style2 right dark fullscreen">
+			<article class="from-left">
+				<a href="images/re.png" class="image fit"><img src="images/re.png" title="image" alt="" /></a>
+			</article>
+			<div class="content box style2">
+				<header>
+					<h2>智慧家庭：連線啟動</h2>
+				</header>
+				<p>即時偵測家中的人物和物件。當系統偵測到活動時，它會自動捕捉照片，並透過 Line Bot 即時將照片傳送。</p>
+			</div>
+			<a href="#work" class="button style2 down anchored">Next</a>
+		</section>
+
+		<!-- Work -->
+			<section id="work" class="main style3 primary">
+				<div class="content">
+					<header>
+						<h2>Outcome Display</h2>
+					</header>
+
+					<!-- Gallery  -->
+						<div class="gallery">
+							<article class="only-image">
+								<div>
+									<a href="images/result1.png" class="image fit"><img src="images/result1.png" title="Outcome:person" alt="" /></a>
+								</div>
+						</div>
+
+				</div>
+			</section>
+
+
+		<!-- Scripts -->
+			<script src="css/assets/js/jquery.min.js"></script>
+			<script src="css/assets/js/jquery.poptrox.min.js"></script>
+			<script src="css/assets/js/jquery.scrolly.min.js"></script>
+			<script src="css/assets/js/jquery.scrollex.min.js"></script>
+			<script src="css/assets/js/browser.min.js"></script>
+			<script src="css/assets/js/breakpoints.min.js"></script>
+			<script src="css/assets/js/util.js"></script>
+			<script src="css/assets/js/main.js"></script>
+			<script>
+			$(document).ready(function () {
+			// 捲軸偵測距離頂部超過 50 才顯示按鈕
+			$(window).scroll(function () {
+				if ($(window).scrollTop() > 50) {
+				if ($(".back-top").hasClass("hide")) {
+					$(".back-top").toggleClass("hide");
+				}
+				} else {
+				$(".back-top").addClass("hide");
+				}
+			});
+
+			// 點擊按鈕回頂部
+			$(".back-top").on("click", function (event) {
+				$("html, body").animate(
+				{
+					scrollTop: 0
+				},
+				500 // 回頂部時間為 500 毫秒
+				);
+			});
+			});
+			</script>
+
+	</body>
+</html>
