@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Camera Detector </title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.css">
+
+    <!-- Main Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/ai1.jpg" type="image/x-icon">
+    <link rel="icon" href="images/ai1.jpg" type="image/x-icon">
+
+    <style>
+        body {
+          font-family: Verdana, sans-serif;
+          margin: 0;
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        .row > .column {
+          padding: 0 8px;
+        }
+        
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        
+        .column {
+          float: left;
+          width: 38%;
+          padding: 8px;
+          box-sizing: border-box;
+        }
+        
+        /* The Modal (background) */
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          padding-top: 100px;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: black;
+        }
+        
+        /* Modal Content */
+        .modal-content {
+          position: relative;
+          background-color: #fefefe;
+          margin: auto;
+          padding: 0;
+          max-width: 50%; /* 初始的最大寬度 */
+          max-height: 50%;
+        }
+        
+        /* The Close Button */
+        .close {
+          color: white;
+          position: absolute;
+          top: 10px;
+          right: 25px;
+          font-size: 35px;
+          font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: #999;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        
+        .mySlides {
+          display: none;
+        }
+        
+        .cursor {
+          cursor: pointer;
+        }
+        
+        /* Next & previous buttons */
+        .prev,
+        .next {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          width: auto;
+          padding: 16px;
+          margin-top: -50px;
+          color: white;
+          font-weight: bold;
+          font-size: 20px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+          -webkit-user-select: none;
+        }
+        
+        /* Position the "next button" to the right */
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+        }
+        
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+          background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        /* Number text (1/3 etc) */
+        .numbertext {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+        }
+        
+        img {
+          margin-bottom: -4px;
+        }
+        
+        .caption-container {
+          text-align: center;
+          background-color: black;
+          padding: 2px 16px;
+          color: white;
+        }
+        
+        .demo {
+          opacity: 0.6;
+        }
+        
+        .active,
+        .demo:hover {
+          opacity: 1;
+        }
+        
+        img.hover-shadow {
+          transition: 0.3s;
+        }
+        
+        .hover-shadow:hover {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+    
+      /* Responsive Design for Screens  */
+        @media screen and (max-width: 700px){
+        .modal-content {
+            max-width: 80%;
+            max-height: 60%;
+            margin: auto;
+        }
+        .row .column {
+            width: 50%;
+        }
+
+        .row .column img {
+            width: 100%;
+            height: auto;
+        } 
+        .mySlides img {
+            width: 100%;
+            height: auto;
+        }
+        }
+
+        @media screen and (max-width: 575px){
+        .modal-content {
+            max-width: 100%;
+            max-height: 70%;
+        }
+        }
+        
+    </style>
+
+</head>
+<body>
+    <!-- START preloader-wrapper -->
+    <div class="preloader-wrapper">
+        <div class="preloader-inner">
+            <div class="spinner-border text-red"></div>
+        </div>
+    </div>
+    <!-- END preloader-wrapper -->
+    
+    <!-- START main-wrapper -->
+    <section class="d-flex">
+  
+<!-- start of sidenav -->
+<aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
+    <a class="navbar-brand" href="home.html" class="logo">
+        <img src="images/logo2.png" alt="">
+    </a>
+    <!-- end of navbar-brand -->
+    <div class="navbar navbar-dark my-4 p-0 font-primary">
+        <ul class="navbar-nav w-100">
+          <li class="nav-item ">
+            <a class="nav-link text-white px-0 pt-0" href="home.html">Home</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link text-white px-0" href="about_us.html">About</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text-white px-0" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link text-white px-0" href="display.html">Display</a>
+        <li class="nav-item mt-3">
+            <li class="nav-item mt-3">
+              <div class="gtranslate_wrapper">
+              <script>window.gtranslateSettings = {"default_language":"zh-TW","native_language_names":true,"languages":["zh-TW","en","ja"],"wrapper_selector":".gtranslate_wrapper"}</script>
+              <script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
+              </div>
+            </li>
+            </li>
+        </ul>
+    </div>
+    <!-- end of navbar -->
+</div></aside>
+<!-- end of sidenav -->
+    <div class="main-content">
+<!-- start of mobile-nav -->
+<header class="mobile-nav pt-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <a href="index.html">
+                    <img src="images/logo2.png" alt="">
+                </a>
+            </div>
+            <div class="col-6 text-right">
+                <button class="nav-toggle bg-transparent border text-white">
+                    <span class="fas fa-bars"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="nav-toggle-overlay"></div>
+<!-- end of mobile-nav -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="bg-dark p-5 mb-5">
+                        <div class="row no-gutters">
+                            <div class="col-xl-6 border-right border-lg-0 pr-0 pr-xl-5">
+                                <h1 class="text-white add-letter-space">Camera Detector</h1>
+                                <div class="breadcrumb-wrap mt-3">
+                                    <span>Introduction</span>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 pl-0 pl-xl-5 mt-4 mt-xl-0">
+                                <div class="categores-links text-capitalize">
+                                    <h3 class="text-white add-letter-space mb-3">專案介紹</h3>
+                                </div>
+                            </div>               
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container py-4 my-5">  
+                <div class="row">
+                    <div class="column">
+                        <img src="images/post/post-md/10.png" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                    </div>
+                    <div class="column">
+                        <img src="images/post/post-md/Synology NAS-7.png" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                    </div>
+                    <div id="myModal" class="modal">
+                        <span class="close cursor" onclick="closeModal()">&times;</span>
+                        <div class="modal-content">
+                      
+                          <div class="mySlides">
+                            <div class="numbertext">1 / 2</div>
+                            <img src="images/post/post-md/10.png" style="width:100%">
+                          </div>
+                      
+                          <div class="mySlides">
+                            <div class="numbertext">2 / 2</div>
+                            <img src="images/post/post-md/Synology NAS-7.png" style="width:100%">
+                          </div>
+                          
+                          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                      
+                          <div class="caption-container">
+                            <p id="caption"></p>
+                          </div>
+                      
+                      
+                          <div class="column">
+                            <img class="demo cursor" src="images/post/post-md/10.png" style="width:100%" onclick="currentSlide(1)" alt="結構圖">
+                          </div>
+                          <div class="column">
+                            <img class="demo cursor" src="images/post/post-md/Synology NAS-7.png" style="width:100%" onclick="currentSlide(2)" alt="結構圖(文字版)">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="widget">
+                            <br>
+                            <h1 class="widget-title text-white d-inline-block mb-4">Guide</h1>
+                            <ul class="list-unstyled">
+                                <li class="bullet-list-item mb-5">
+                                    <h3 class="text-white mb-3 add-letter-space">Synology NAS（Network Attached Storage）</h3>
+                                    <p>
+                                        Synology NAS 是一個專業的網絡附加存儲設備，提供安全、可擴展的數據存儲和共享方案。它具有強大功能，讓您能輕鬆在本地網絡中存儲、管理和共享文件、多媒體及其他數據。</p>
+                                    <p>此外，內建的 Surveillance Station 應用可將相容的網絡攝像頭整合至系統，並透過 RTSP 協議提供實時視頻串流，方便監控和管理攝像頭影像。</p>
+                                </li>
+                                <li class="bullet-list-item mb-5">
+                                    <h3 class="text-white mb-3 add-letter-space">Home Assistan and Use HACS </h3>
+                                    <p>Home Assistant 是一個開源的智能家居自動化平台，無論是燈光、溫度、媒體播放還是安全系統，都可以在 Home Assistant 中進行集成和控制。</p>
+                                    <p>HACS（Home Assistant Community Store）則是一個社區開發的插件/整合管理平台，幫助用戶輕鬆擴展和定制 Home Assistant 的功能。</p>
+                                    <br>
+                                    <p>這兩者協同工作，提供更好的智能家居體驗。</p>
+                                    
+                                </li>
+                                <li class="bullet-list-item mb-5">
+                                    <h3 class="text-white mb-3 add-letter-space">MQTT</h3>
+                                    <p>MQTT 是物聯網和傳感器設備的輕量級通訊協議。在其中，"事件主題"是識別符，用於區分資訊類型，而 "訂閱" 是設備或應用程式接收主題消息的方法。</p>
+                                    <p>在MQTT中，發佈者將消息發佈到特定的事件主題，訂閱者則根據訂閱主題接收消息。這使設備和程式能即時通訊，方便數據傳遞和共享。</p>
+                                </li>
+                                <li class="bullet-list-item mb-5">
+                                    <h3 class="text-white mb-3 add-letter-space">Imgur</h3>
+                                    <p>檔案上傳至雲端圖庫轉換成URL網址的過程稱為「圖片轉址」，即將圖片上傳到雲端，然後取得一個網址，這個網址可以用來分享圖片。這讓您能夠在網絡上輕鬆分享圖片，而無需直接嵌入圖片檔案。</p>
+                                </li>
+                                <li class="bullet-list-item mb-5">
+                                    <h3 class="text-white mb-3 add-letter-space">Line Bot</h3>
+                                    <p>Line Bot是基於LINE平台的機器人服務，可自動回應用戶、提供資訊和整合系統，適用於客戶服務等情境。</p>
+                                    <p>要建立 Line Bot，需要註冊LINE開發者帳號，配置機器人的行為，使用不同程式語言開發並透過LINE API互動。</p>
+                                </li>
+                            </ul>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
+          
+        </div>
+    
+        </section>
+    <!-- END main-wrapper -->
+
+    <!-- All JS Files -->
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+
+    <!-- Modal Script -->
+    <script>
+        function openModal() {
+          document.getElementById("myModal").style.display = "block";
+        }
+        
+        function closeModal() {
+          document.getElementById("myModal").style.display = "none";
+        }
+        
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("demo");
+          var captionText = document.getElementById("caption");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+          captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+    </script>
+    
+
+
+</body>
+
+
+</html>

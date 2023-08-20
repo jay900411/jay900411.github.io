@@ -1,275 +1,203 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <!-- RWD -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 自適應網頁(螢幕大小) -->
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <!-- css -->
-    <link rel = "stylesheet" href = "css/style.css">
-    <!-- 中文字形 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
-    <!-- 英文字形 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Camera Detector</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap" rel="stylesheet">
-    <!-- icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://kit.fontawesome.com/893f1b6282.js" crossorigin="anonymous"></script>
-    
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.css">
+
+    <!-- Main Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/logo1.png" type="image/x-icon">
+    <link rel="icon" href="images/ai1.jpg" type="image/x-icon">
+
 </head>
 <body>
-    <div id="button-container">
-        <button id = "top-button">Top</button>
-        <button id = "bottom-button">Button</button>
-    </div>
-    <div class = 'container'>
-        <header>
-        <!-- nav -->
-        <nav class="navbar navbar-expand-lg bg-danger-subtle">
-            <div class="container-fluid">
-            <a class="navbar-brand text-with-shadow" aria-current="page" href="index.html" >Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link text-with-shadow" href="analysis.html">Analysis Table</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-with-shadow" href="javascript:void(0)" onclick="scrollToKeyword(event)">Link</a>
-                  </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-with-shadow" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Web
-                    </a>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="https://support.google.com/youtube/answer/9314356?hl=zh-Hant">Youtube</a></li>
-                    <li><a class="dropdown-item" href="https://www.ikjzd.com/articles/147794">Tik tok</a></li>
-                    <li><a class="dropdown-item" href="https://www.ig-hero.com/ig%E6%B5%81%E9%87%8F%E6%80%8E%E9%BA%BC%E7%9C%8B-%E6%8F%90%E5%8D%87%E6%B5%81%E9%87%8F3%E5%A4%A7%E7%A7%98%E8%A8%A3/">instagram</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <!-- <a class="nav-link disabled">Disabled</a> -->
-                    <a class="nav-link text-with-shadow" href = "try.html">Try</a>
-                </li>
-                </ul>
-                <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn bg-danger text-light fw-medium" type="submit">Search</button>
-                </form>
-            </div>
-            </div>
-        </nav>
-        </header>
-    </div>
-    <!-- 第一個區塊banner -->
-    <section id="intro"  style = "background: linear-gradient(-10deg, #FCAEAE, transparent) 60%, url(pictures/arrow.jpg) no-repeat center;background-size: cover;">    
-        <div class = "jumbotron">
-            <div class = "container"> <!-- 如果css有變化 就用div -->
-                <div class="col-lg-3 col-md-6" style="padding-right: 0; margin-right: -15px;">
-                    <h1 class="display-5 fw-medium" >流量的來源</h1>
-                    <!-- style="margin-right: -15px; background-color: transparent; color: #3e1616; position: absolute; top: 6%; left: 17%; transform: translate(-20%, -60%);" -->
-                </div>               
-                <div class="col-lg-3 col-md-6" style="padding-right: 0;">
-                      <h1 class="display-6 text-bg-secondary fw-medium" >我來告訴你</h1>
-                      <!-- style="margin-right: 0;position: absolute; top:60%; left: 17%; transform: translate(-20%, -60%);" -->
-                </div>
-                <div class="col-lg-2 col-md-6">
-                      <h4 class="text-dark mt-3">source</h4>
-                </div>               
-                <div class="col-lg-2 col-md-6" style="position: relative;">
-                    <a class="btn bg-secondary btn-lg text-light fw-medium" href="#" role="button" >我有興趣!</a>
-                    <!-- style="position: absolute; top: 80%; left: 10%; transform: translate(72%, -60%);" -->
-                </div>
-            </div> 
+    <!-- START preloader-wrapper -->
+    <div class="preloader-wrapper">
+        <div class="preloader-inner">
+            <div class="spinner-border text-red"></div>
         </div>
-    </section>
-    <!-- 第二個區塊介簡 -->
-    <section id="second">    
-        <div class = "container"> 
-            <div class = "row">  
-                <div class = "col-md-6 offset-md-2 text-certer"> 
-                    <h4>了解自己的流量</h4>
-                    <div class = "row"> 
-                        <div class = "col-md-4 text-center"> 
-                            <img src = pictures/logo.jpg  >
-                            <h5>數據究竟代表什麼?</h5>
-                        </div>
-                        <div class = "col-md-8 text-left"> 
-                            <p class = 'lead text fw-medium'>在這科技的時代，數據代表了一切，掌握自己的數字才能掌握他人的數字</p>
-                            <p>對自己負責的首要條件是</p>
-                            <p>找對方法!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>  
-    </section>
-    <!-- 第三個區塊介簡 -->
-    <section id="latest">      
-        <div class = "container"> 
-            <div class = "row">  
-                <div class = "col-md-12 text-certer"> 
-                        <h4>相關連結網站</h4>
-                    <div class = "row"> 
-                        <div class = "col-md-4 text-left"> 
-                            <div class = 'outer'>
-                                <a href = 'https://www.lalamove.com/zh-tw/blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%A4%A7%E6%95%B8%E6%93%9A'>
-                                    <div class = 'upper' style="max-width: 100%;">
-                                        <img src = "pictures/大數據.jpg" style="max-width: 100%; height: auto; aspect-ratio: 5/3.5;"> 
-                                    </div>
-                                    </a>    
-                                    <div class = "lower"> 
-                                        <h6 style="white-space: normal;">Do you really understand big data?</h6>
-                                        <span><i class="fa-solid fa-arrow-up-wide-short"></i>asda</span>
-                                        <!-- i font awesome -->
-                                        <span><i class="fa-solid fa-arrow-up-right-dots"></i>wenfe</span>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class = "col-md-4 text-left"> 
-                            <div class = 'outer'>
-                                <a href = 'http://www.asia-learning.com/course/itemlist/103100'>
-                                    <div class = 'upper' style="max-width: 100%;">
-                                        <img src = "pictures/sources_map.jpg" style="max-width: 100%; height: auto; aspect-ratio: 5/3.5;"> 
-                                    </div>
-                                    </a>    
-                                    <div class = "lower"> 
-                                        <h6 style="white-space: normal;">Where does your data come from?</h6>
-                                        <span><i class = 'fas fa-map-marker-alt'></i></span>
-                                        <!-- i font awesome -->
-                                        <span><i class = 'fas fa-clock'></i>wenfe</span>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class = "col-md-4 text-left"> 
-                            <div class = 'outer'>
-                                <a href = 'https://www.yourator.co/articles/277'>
-                                    <div class = 'upper' style="max-width: 100%;">
-                                        <img src = "pictures/category.jpg" style="max-width: 100%; height: auto; aspect-ratio: 5/3.5;"> 
-                                    </div>
-                                    </a>    
-                                    <div class = "lower"> 
-                                        <h6>"Do we do different things?</h6>
-                                        <span><i class = 'fas fa-map-marker-alt'></i>asda</span>
-                                        <!-- i font awesome -->
-                                        <span><i class = 'fas fa-clock'></i>wenfe</span>
-                                    </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class = "row"> 
-                        <div class = "col-md-4 text-left"> 
-                            <div class = 'outer'>
-                                <a href = '#'>
-                                    <div class = 'upper'>
-                                        <img src = "pictures/arrow.jpg"> 
-                                    </div>
-                                    </a>    
-                                    <div class = "lower"> 
-                                        <h4>新快報</h4>
-                                        <span><i class = 'fas fa-map-marker-alt'></i>asda</span>
-                                        <!-- i font awesome -->
-                                        <span><i class = 'fas fa-clock'></i>wenfe</span>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class = "col-md-4 text-left"> 
-                            <div class = 'outer'>
-                                <a href = '#'>
-                                    <div class = 'upper'>
-                                        <img src = "pictures/arrow.jpg"> 
-                                    </div>
-                                    </a>    
-                                    <div class = "lower"> 
-                                        <h4>第二快報</h4>
-                                        <span><i class = 'fas fa-map-marker-alt'></i>asda</span>
-                                        <!-- i font awesome -->
-                                        <span><i class = 'fas fa-clock'></i>wenfe</span>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class = "col-md-4 text-left"> 
-                            <div class = 'outer'>
-                                <a href = '#'>
-                                    <div class = 'upper'>
-                                        <img src = "pictures/arrow.jpg"> 
-                                    </div>
-                                    </a>    
-                                    <div class = "lower"> 
-                                        <h4>第三快報</h4>
-                                        <span><i class = 'fas fa-map-marker-alt'></i>asda</span>
-                                        <!-- i font awesome -->
-                                        <span><i class = 'fas fa-clock'></i>wenfe</span>
-                                    </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- 第四個區塊email -->
-    <section id = 'email'>
-        <div class = 'container'>
-            <div class = 'row'>
-                <div class = 'col-md-8 offset-md-2 text-center'>
-                    <h4>與我們聯繫</h4>
-                </div>
-            </div>
-            <div class = 'row'>
-                <div class = 'col-md-8 offset-md-2 text-center'>
-                    <p>開始了解你的數據吧！</p>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                    </div>
-                    <a class = 'btn btn-primary btn-lg' href = '#' role = 'button'>提交</a>
-                    </div>
-                </div>
+    </div>
+    <!-- END preloader-wrapper -->
+    
+    <!-- START main-wrapper -->
+    <section class="d-flex">
+  
+<!-- start of sidenav -->
+<aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
+    <a class="navbar-brand" href="index.html" class="logo">
+        <img src="images/logo2.png" alt="">
+    </a>
+    <!-- end of navbar-brand -->
+    <div class="navbar navbar-dark my-4 p-0 font-primary">
+        <ul class="navbar-nav w-100">
+          <li class="nav-item ">
+            <a class="nav-link text-white px-0 pt-0" href="index.html">Home</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link text-white px-0" href="about_us.html">About</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text-white px-0" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link text-white px-0" href="display.html">Display</a>
+        <li class="nav-item mt-3">
+            <li class="nav-item mt-3">
+              <div class="gtranslate_wrapper">
+              <script>window.gtranslateSettings = {"default_language":"zh-TW","native_language_names":true,"languages":["zh-TW","en","ja"],"wrapper_selector":".gtranslate_wrapper"}</script>
+              <script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
+              </div>
+            </li>
+            </li>
+        </ul>
+    </div>
+    <!-- end of navbar -->
 
+</div></aside>
+<!-- end of sidenav -->
+    <div class="main-content">
+        <!-- start of mobile-nav -->
+<header class="mobile-nav pt-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <a href="index.html">
+                    <img src="images/logo2.png" alt="">
+                </a>
+            </div>
+            <div class="col-6 text-right">
+                <button class="nav-toggle bg-transparent border text-white">
+                    <span class="fas fa-bars"></span>
+                </button>
             </div>
         </div>
-    </section>
-    <!-- 第五個區塊footer -->
-    <footer>
-        <div class = 'container'>
-            <div class = 'row'>
-                <div class = 'col-md-4'>
-                    <img src = '' alt = '' width = '170'>
-                    <p>你的數據是你的財力</p>
-                </div>
-                <div class = 'col-md-4'>
-                    <h4>你的財力來自數據</h4>
-                    <ul>
-                        <li><a href = 'index.html'>回首頁</a></li>
-                        <li><a href = 'all.html'></a>等等我</li>
-                    </ul>
-                    <ul>
-                        <li><a href = 'faq.html'>還沒想到回首頁</a></li>
-                        <li><a href = 'contact.html'></a>你再等等</li>
-                    </ul>
-                </div>
-                <div class = 'col-md-4'>
-                    <h4>給我錢</h4>
-                    <p>中信 郵局 元大 合庫 台銀</p>
-                </div>
-            </div>
+    </div>
+</header>
+
+<!-- end of mobile-nav -->
+
+            <div class="container py-4 my-5">    
+                <div class="row justify-content-between">
+                    <div class="col-lg-10">
+                        <img class="img-fluid" src="images/post/post-lg/project.png" alt="">
+                        <h1 class="text-white add-letter-space mt-4">"This Project aims to..."</h1>
+                        <br>
+                        <br>
+                        <p>透過家用監視器進行影像辨識，一旦系統偵測到事件，系統會自動記錄下這些事件，並與 LINE BOT 整合，立即向使用者發送通知，讓使用者能夠第一時間瞭解發生的情況。這種整合不僅提供了即時性的通知，還能夠增強家庭的安全感與監控效果。</p>
+                        <br>
+                        <a href="about_us.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
+                        <br>
+                        <br>
+                        <div class="blockquote bg-dark my-5">
+                            <p class="blockquote-text pl-2">Protecting our world isn't just about technology—it's also about human wisdom.</p>
+                            <span class="blockquote-footer text-white h4 mt-3">Kevin Mitnick</span>
+                        </div>
+                         <!-- end headings -->
+                        <!-- Our Team -->
+                        <div class="widget">
+                            <h1 class="widget-title text-white d-inline-block mb-4">Our Team</h1>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-4 col-sm-6 mx-auto">
+                                  <div class="box">
+                                    <div class="img-box">
+                                      <img src="images/photo.jpg" alt="">
+                                    </div>
+                                    <div class="detail-box" >
+                                      <h5>
+                                        劉名政
+                                      </h5>
+                                      <a href="https://github.com/foylaou" class="text-white text-red-onHover pr-2" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 mx-auto">
+                                  <div class="box">
+                                    <div class="img-box">
+                                      <img src="images/photo1.jpg" alt="">
+                                    </div>
+                                    <div class="detail-box">
+                                      <h5>
+                                        賴義中
+                                      </h5>
+                                      <a href="https://github.com/jay900411" class="text-white text-red-onHover pr-2" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 mx-auto">
+                                  <div class="box">
+                                    <div class="img-box">
+                                      <img src="images/photo2.jpg" alt="">
+                                    </div>
+                                    <div class="detail-box">
+                                      <h5>
+                                        蔡宜婷
+                                      </h5>
+                                      <a href="https://github.com/vegetable1003" class="text-white text-red-onHover pr-2" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 ">
+                                    <div class="box">
+                                      <div class="img-box">
+                                        <img src="images/post/post-sm/Patrick Star.jpg" alt="">
+                                      </div>
+                                      <div class="detail-box">
+                                        <h5>
+                                          陳佑羽
+                                        </h5>
+                                        <a href="https://github.com/yvesyu02" class="text-white text-red-onHover pr-2" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                            </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4 col-sm-6 ">
+                                    <div class="box">
+                                      <div class="img-box">
+                                        <img src="images/post/post-sm/Patrick Star.jpg" alt="">
+                                      </div>
+                                      <div class="detail-box">
+                                        <h5>
+                                          陳鈺涵
+                                        </h5>
+                                        <a href="#!" class="text-white text-red-onHover pr-2" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                            </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                             </div>
+                            </div>
+                        </div>
+                        <!-- end Our Team -->
         </div>
-    </footer>
-    <script src= "js/script.js"></script>
+    
+        </section>
+    <!-- END main-wrapper -->
+
+    <!-- All JS Files -->
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
 </body>
 </html>
